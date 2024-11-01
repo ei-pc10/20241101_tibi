@@ -1,0 +1,30 @@
+<!doctype HTML>
+<html>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>しばウォーク</title>
+    <script src="https://aframe.io/releases/1.4.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-look-at-component@0.8.0/dist/aframe-look-at-component.min.js"></script>
+    <script src="https://raw.githack.com/AR-js-org/AR.js/master/aframe/build/aframe-ar-nft.js"></script>
+    <script type='text/javascript' src='https://raw.githack.com/AR-js-org/AR.js/master/three.js/build/ar-threex-location-only.js'></script>
+
+<body style='margin:0px; overflow:hidden;'>
+<!-- こっからA-Frame -->
+<a-scene embedded arjs="debugUIEnabled:false; trackingMethod:best;" vr-mode-ui="enabled: false">
+    <!-- オブジェクトファイルとマテリアルファイルを読み込む -->
+    <a-assets>
+        <a-asset-item id="workspace_glb" src="https://raw.githubusercontent.com/ei-pc10/20241101_model/main/%E3%83%81%E3%83%93%E3%82%AD%E3%83%A3%E3%83%A9%E5%88%9D%E6%9C%9F%E8%A1%A3%E8%A3%85v2.2%E6%A3%92%E7%AB%8B%E3%81%A1.glb"></a-asset-item>
+    </a-assets>
+
+    <!-- こっからARの世界。マーカー上になにを展開するかを書く -->
+    <!-- マーカー hiro にモデルを表示 -->
+    <a-marker preset="hiro">
+        <a-gltf-model src="#workspace_glb" position="0 0 3.5" scale="1 1 1" rotation="0 0 0" look-at="[camera]"></a-gltf-model>
+    </a-marker>
+
+    <!-- ARのカメラ -->
+    <a-entity camera></a-entity>
+</a-scene>
+<!-- ここまででA-Frameおわり -->
+</body>
+</html>
